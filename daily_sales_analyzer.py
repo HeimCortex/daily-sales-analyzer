@@ -106,18 +106,16 @@ green&white;,;09/15/17,   Gail Phelps   ;,;$30.52
 
 
 #------------------------------------------------
-# Start coding below!
+# Data Cleaning
 daily_sales_replaced = daily_sales.replace(";,;", ";")
 daily_transactions = daily_sales_replaced.split(",")
 #print(daily_transactions)
-
 
 daily_transactions_split = []
 for i in daily_transactions:
   xy = i.split(";")
   daily_transactions_split.append(xy)
 #print(daily_transactions_split)
-
 
 transactions_clean = []
 for sublist in daily_transactions_split:
@@ -128,7 +126,6 @@ for sublist in daily_transactions_split:
   transactions_clean.append(clean_sublist)
 #print(transactions_clean)
 
-
 customers = []
 sales = []
 thread_sold = []
@@ -138,14 +135,12 @@ for i in transactions_clean:
   thread_sold.append(i[2])
 #print(customers, sales, thread_sold)
 
-
 total_sales = 0
 for i in sales:
   xy = i.replace("$", "")
   z = float(xy)
   total_sales += z
 #print(total_sales)
-
 
 #print(thread_sold)
 thread_sold_split = []
@@ -156,11 +151,9 @@ for i in thread_sold:
   elif "&" in i:
     new_i = i.split("&")
     for j in new_i:
-      thread_sold_split.append(j)
-      
+      thread_sold_split.append(j)     
 #Testing: 
 #print(thread_sold_split)
-
 
 color = ''
 def color_count(color):
@@ -169,7 +162,6 @@ def color_count(color):
     if color in i:
       count += 1
   return count
-
 #Testing:
 #print(color_count('white'))
 
